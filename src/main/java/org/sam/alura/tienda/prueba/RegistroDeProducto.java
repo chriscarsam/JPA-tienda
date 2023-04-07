@@ -3,6 +3,8 @@ package org.sam.alura.tienda.prueba;
 import java.math.BigDecimal;
 
 import javax.persistence.EntityManager;
+
+import org.sam.alura.tienda.dao.CategoriaDAO;
 import org.sam.alura.tienda.dao.ProductoDao;
 import org.sam.alura.tienda.modelo.Categoria;
 import org.sam.alura.tienda.modelo.Producto;
@@ -17,9 +19,11 @@ public class RegistroDeProducto {
 		EntityManager em = JPAUtils.getEntityManager();
 		
 		ProductoDao productoDao = new ProductoDao(em);
+		CategoriaDAO categoriaDAO = new CategoriaDAO(em);
 		
 		em.getTransaction().begin();
 		
+		categoriaDAO.guardar(celulares);
 		productoDao.guardar(celular);
 		
 		em.getTransaction().commit();

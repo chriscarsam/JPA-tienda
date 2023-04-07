@@ -10,7 +10,9 @@ import org.sam.alura.tienda.utils.JPAUtils;
 
 public class RegistroDeProducto {
 	public static void main(String[] args) {
-		Producto celular = new Producto("Samsung","teléfono usado", new BigDecimal("1000"), Categoria.CELULARES);
+		
+		Categoria celulares = new Categoria("CELULARES");
+		Producto celular = new Producto("Samsung","teléfono usado", new BigDecimal("1000"), celulares);
 						
 		EntityManager em = JPAUtils.getEntityManager();
 		

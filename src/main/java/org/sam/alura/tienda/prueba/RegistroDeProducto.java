@@ -19,8 +19,11 @@ public class RegistroDeProducto {
 	    Producto producto = productoDao.consultaPorId(1l);
 	    System.out.println(producto.getNombre());	 
 	    
-	    List<Producto> productos = productoDao.consultarTodos();
+	    List<Producto> productos = productoDao.consultaPorNombre("Xiaomi Redmi");
 	    productos.forEach(prod -> System.out.println(prod.getDescripcion()));
+	    
+	    List<Producto> productosCategoria = productoDao.consultaPorNombreDeCategoria("CELULARES");
+	    productosCategoria.forEach(prod -> System.out.println(prod.getDescripcion()));
 	    
 	}
 

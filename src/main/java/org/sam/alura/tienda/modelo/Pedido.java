@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -20,15 +21,14 @@ public class Pedido {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private LocalDate fecha;
+	private LocalDate fecha = LocalDate.now();
 	private BigDecimal valorTotal;
 
 	@ManyToOne
 	private Cliente cliente;
 	
-	@ManyToMany
-	@JoinTable(name = "items_pedido")
-	private List<Producto> productos;
+	@OneToMany
+	private List<ItemsPedido> items;
 	
 	public Pedido() {
 	}

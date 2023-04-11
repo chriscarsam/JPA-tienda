@@ -6,8 +6,8 @@
         
         <persistence-unit name="tienda" transaction-type="RESOURCE_LOCAL">
         	<properties>
-        		<property name="javax.persistence.jdbc.dreiver" value="org.h2.Driver"/>
-        		<property name="javax.persistence.jdbc.url" value="jdbc:h2:/home/user/Cursos/OracleOne/Java/JavaJPA/jpa/database"/>
+        		<property name="javax.persistence.jdbc.driver" value="org.h2.Driver"/>
+        		<property name="javax.persistence.jdbc.url" value="jdbc:h2:/home/user/Cursos/OracleOne/Java/JavaJPA/jpa/tienda"/>
         		<property name="javax.persistence.jdbc.user" value="sa"/>
         		<property name="javax.persistence.jdbc.password" value="1234"/>
         		

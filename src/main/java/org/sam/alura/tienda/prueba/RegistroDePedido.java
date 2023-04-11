@@ -1,11 +1,10 @@
 package org.sam.alura.tienda.prueba;
 
 import java.math.BigDecimal;
-import java.util.List;
-
 import javax.persistence.EntityManager;
 
 import org.sam.alura.tienda.dao.CategoriaDao;
+import org.sam.alura.tienda.dao.ClienteDao;
 import org.sam.alura.tienda.dao.PedidoDao;
 import org.sam.alura.tienda.dao.ProductoDao;
 import org.sam.alura.tienda.modelo.Categoria;
@@ -24,6 +23,7 @@ public class RegistroDePedido {
 		ProductoDao productoDao = new ProductoDao(em);
 		Producto producto = productoDao.consultaPorId(1l);
 		
+		ClienteDao clienteDao = new ClienteDao(em);
 		PedidoDao pedidoDao = new PedidoDao(em);
 		
 		Cliente cliente = new Cliente("Juan", "k675kjb");
@@ -32,9 +32,10 @@ public class RegistroDePedido {
 		
 		em.getTransaction().begin();	
 		
+		clienteDao.guardar(cliente);
 		pedidoDao.guardar(pedido);
 		
-		em.getTransaction().commit();
+		em.getTransaction().commit();		
 		 
 	}
 

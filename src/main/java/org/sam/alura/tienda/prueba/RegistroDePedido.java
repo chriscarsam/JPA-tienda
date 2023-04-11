@@ -36,6 +36,11 @@ public class RegistroDePedido {
 		pedidoDao.guardar(pedido);
 		
 		em.getTransaction().commit();		
+		
+		pedidoDao.valorTotalVendido();
+		
+		BigDecimal valorTotal = pedidoDao.valorTotalVendido();
+		System.out.println("Valor total: " + valorTotal);
 		 
 	}
 

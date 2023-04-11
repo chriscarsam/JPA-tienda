@@ -42,7 +42,7 @@ public class RegistroDePedido {
 	private static void registrarProducto() {
 		Categoria celulares = new Categoria("CELULARES");
 
-		Producto celular = new Producto("Xiaomi Redmi", "Muy bueno", new BigDecimal("800"), celulares);
+		Producto celular = new Producto("Sansung X1", "Very good", new BigDecimal("800"), celulares);
 
 	    EntityManager em = JPAUtils.getEntityManager();
 	    ProductoDao productoDao = new ProductoDao(em);

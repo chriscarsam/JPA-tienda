@@ -6,6 +6,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 
 import org.sam.alura.tienda.modelo.Pedido;
+import org.sam.alura.tienda.vo.RelatorioDeVentas;
 
 public class PedidoDao {
 	
@@ -57,6 +58,18 @@ public class PedidoDao {
 				+ "GROUP BY producto.nombre ";
 		
 		return em.createQuery(jpql, Object[].class).getResultList();
+	}
+	
+	public List<RelatorioDeVentas> relatorioDeVentasVO(){
+		String jpql = "SELECT new org.sam.alura.tienda.vo.RelatorioDeVentas(producto.nombre, "
+				+ "SUM(item.cantidad), "
+				+ "MAX(pedido.fecha)) "
+				+ "FROM Pedido pedido "
+				+ "JOIN pedido.items item "
+				+ "JOIN item.producto producto "
+				+ "GROUP BY producto.nombre ";
+		
+		return em.createQuery(jpql, RelatorioDeVentas.class).getResultList();
 	}
 }
 

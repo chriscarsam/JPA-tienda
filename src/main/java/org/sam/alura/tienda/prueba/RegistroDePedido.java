@@ -15,6 +15,7 @@ import org.sam.alura.tienda.modelo.ItemsPedido;
 import org.sam.alura.tienda.modelo.Pedido;
 import org.sam.alura.tienda.modelo.Producto;
 import org.sam.alura.tienda.utils.JPAUtils;
+import org.sam.alura.tienda.vo.RelatorioDeVentas;
 
 public class RegistroDePedido {
 	public static void main(String[] args) {
@@ -44,13 +45,9 @@ public class RegistroDePedido {
 		BigDecimal valorTotal = pedidoDao.valorTotalVendido();
 		System.out.println("Valor total: " + valorTotal);
 		
-		List<Object[]> relatorio = pedidoDao.relatorioDeVentas();
+		List<RelatorioDeVentas> relatorio = pedidoDao.relatorioDeVentasVO();
 		
-		for(Object[] obj:relatorio) {
-			System.out.println(obj[0]);
-			System.out.println(obj[1]);
-			System.out.println(obj[2]);
-		}
+		relatorio.forEach(System.out::println);
 		 
 	}
 

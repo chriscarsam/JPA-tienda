@@ -1,6 +1,8 @@
 package org.sam.alura.tienda.prueba;
 
 import java.math.BigDecimal;
+import java.util.List;
+
 import javax.persistence.EntityManager;
 
 import org.sam.alura.tienda.dao.CategoriaDao;
@@ -41,6 +43,14 @@ public class RegistroDePedido {
 		
 		BigDecimal valorTotal = pedidoDao.valorTotalVendido();
 		System.out.println("Valor total: " + valorTotal);
+		
+		List<Object[]> relatorio = pedidoDao.relatorioDeVentas();
+		
+		for(Object[] obj:relatorio) {
+			System.out.println(obj[0]);
+			System.out.println(obj[1]);
+			System.out.println(obj[2]);
+		}
 		 
 	}
 

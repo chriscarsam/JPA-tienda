@@ -6,7 +6,6 @@ import java.util.List;
 import javax.persistence.EntityManager;
 
 import org.sam.alura.tienda.modelo.Pedido;
-import org.sam.alura.tienda.modelo.Producto;
 
 public class PedidoDao {
 	
@@ -18,6 +17,15 @@ public class PedidoDao {
 	
 	public void guardar(Pedido pedido) {
 		this.em.persist(pedido);
+	}
+	
+	public void actualizar(Pedido pedido) {
+		this.em.merge(pedido);
+	}
+	
+	public void remover(Pedido pedido) {
+		pedido=this.em.merge(pedido);
+		this.em.remove(pedido);
 	}
 	
 	public Pedido consultaPorId(Long id) {

@@ -4,6 +4,7 @@ import java.io.FileNotFoundException;
 
 import javax.persistence.EntityManager;
 
+import org.sam.alura.tienda.dao.PedidoDao;
 import org.sam.alura.tienda.modelo.Pedido;
 import org.sam.alura.tienda.utils.JPAUtils;
 
@@ -13,11 +14,14 @@ public class PruebaDeDesempeniho {
 		
 		EntityManager em = JPAUtils.getEntityManager();
 		
-		Pedido pedido = em.find(Pedido.class, 3l);
+		PedidoDao pedidoDao = new PedidoDao(em);
+		Pedido pedidoConCliente = pedidoDao.consultarPedidoConCliente(2l);
+		
+		em.close();
 		
 		// System.out.println(pedido.getFecha());
 		// System.out.println(pedido.getItems().size());
-		System.out.println(pedido.getCliente().getNombre());
+		System.out.println(pedidoConCliente.getCliente().getNombre());
 	}
 
 }

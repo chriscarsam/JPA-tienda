@@ -15,7 +15,9 @@ public class PruebaDeDesempeniho {
 		
 		Pedido pedido = em.find(Pedido.class, 3l);
 		
-		System.out.println(pedido.getFecha());
+		// System.out.println(pedido.getFecha());
+		// System.out.println(pedido.getItems().size());
+		System.out.println(pedido.getCliente().getNombre());
 	}
 
 }

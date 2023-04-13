@@ -18,7 +18,7 @@ public class PruebaDeParametros {
 		EntityManager em = JPAUtils.getEntityManager();
 		ProductoDao productoDao =new ProductoDao(em);
 		
-		List<Producto> resultado = productoDao.consultarPorParametros("FIFA", null, null);
+		List<Producto> resultado = productoDao.consultarPorParametros("FIFA", new BigDecimal(10000), null);
 		
 		System.out.println(resultado.get(0).getDescripcion());
 	}

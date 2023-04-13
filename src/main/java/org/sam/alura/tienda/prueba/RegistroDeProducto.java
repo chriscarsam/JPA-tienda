@@ -8,6 +8,7 @@ import javax.persistence.EntityManager;
 import org.sam.alura.tienda.dao.CategoriaDao;
 import org.sam.alura.tienda.dao.ProductoDao;
 import org.sam.alura.tienda.modelo.Categoria;
+import org.sam.alura.tienda.modelo.CategoriaId;
 import org.sam.alura.tienda.modelo.Producto;
 import org.sam.alura.tienda.utils.JPAUtils;
 
@@ -25,6 +26,9 @@ public class RegistroDeProducto {
 	    BigDecimal precio = productoDao.consultarPrecioPorNombreDeProducto("Xiaomi Redmi");
 	    System.out.println(precio);
 	    
+	    Categoria find = em.find(Categoria.class, new CategoriaId("CELULARES", "456"));
+	    
+	    System.out.println(find.getNombre());
 	}
 
 	private static void registrarProducto() {

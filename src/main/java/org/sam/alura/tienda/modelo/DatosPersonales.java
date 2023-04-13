@@ -1,10 +1,13 @@
 package org.sam.alura.tienda.modelo;
 
+import java.io.Serializable;
+
 import javax.persistence.Embeddable;
 
 @Embeddable
-public class DatosPersonales {
+public class DatosPersonales implements Serializable{
 	
+	private static final long serialVersionUID = 1L;
 	private String nombre;
 	private String dni;
 	
